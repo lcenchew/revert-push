@@ -23,7 +23,7 @@ jobs:
     steps:
       - uses: actions/checkout@v2
         with:
-          ref: ${{ INPUT_BRANCH }} 
+          ref: ${{ inputs.branch }} 
           fetch-depth: 0
 
       - run: |
