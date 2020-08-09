@@ -1,0 +1,29 @@
+name: "Revert Push"
+description: "Revert the latest git push to the previous commit. Useful for reverting push error."
+author: "lcenchew"
+branding:
+  icon: git-commit
+  color: blue
+
+on:
+  workflow_dispatch:
+    inputs:
+      branch:
+        description: 'Branch to revert latest commit'
+        required: true
+        default: 'master'
+    
+jobs:
+  revert:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v2
+        with:
+          ref: ${{ github.event.inputs.branch }} 
+          fetch-depth: 0
+
+      - run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git reset --hard HEAD~1
+          git push --force
