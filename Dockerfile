@@ -1,4 +1,4 @@
-FROM docker.pkg.github.com/lcenchew/github-action-git-docker/image:latest
+FROM lcenchew/github-action-git-docker:latest
 
 RUN apk add --update --no-cache git && \
     rm -rf /var/lib/apt/lists/* 
