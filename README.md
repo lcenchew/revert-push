@@ -1,3 +1,5 @@
+➥ Moved to https://github.com/exions/undo-push
+
 # Revert Push
 Revert a git push by going back 1 commit before.
 
